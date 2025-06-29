@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_glowstone",
+  "base": "polydoodads:netherite_necklace",
+  "result": {
+    "id": "polydoodads:glowstone_netherite_necklace"
+  },
+  "template": "minecraft:netherite_ingot"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_resin",
+  "base": "polydoodads:iron_anklet",
+  "result": {
+    "id": "polydoodads:resin_iron_anklet"
+  },
+  "template": "minecraft:iron_ingot"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_amethyst",
+  "base": "polydoodads:netherite_anklet",
+  "result": {
+    "id": "polydoodads:amethyst_netherite_anklet"
+  },
+  "template": "minecraft:netherite_ingot"
+}

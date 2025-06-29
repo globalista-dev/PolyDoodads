@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_redstone",
+  "base": "polydoodads:netherite_mask",
+  "result": {
+    "id": "polydoodads:redstone_netherite_mask"
+  },
+  "template": "minecraft:netherite_ingot"
+}

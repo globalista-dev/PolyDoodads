@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_amethyst",
+  "base": "polydoodads:copper_anklet",
+  "result": {
+    "id": "polydoodads:amethyst_copper_anklet"
+  },
+  "template": "minecraft:copper_ingot"
+}

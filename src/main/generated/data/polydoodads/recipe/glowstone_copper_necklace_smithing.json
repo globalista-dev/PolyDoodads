@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_glowstone",
+  "base": "polydoodads:copper_necklace",
+  "result": {
+    "id": "polydoodads:glowstone_copper_necklace"
+  },
+  "template": "minecraft:copper_ingot"
+}

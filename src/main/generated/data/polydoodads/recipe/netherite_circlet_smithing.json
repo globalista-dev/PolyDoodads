@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "polydoodads:gold_circlet",
+  "result": {
+    "id": "polydoodads:netherite_circlet"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

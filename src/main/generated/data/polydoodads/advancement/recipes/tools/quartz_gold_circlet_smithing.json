@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gold_circlet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "polydoodads:gold_circlet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "polydoodads:quartz_gold_circlet_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gold_circlet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "polydoodads:quartz_gold_circlet_smithing"
+    ]
+  }
+}

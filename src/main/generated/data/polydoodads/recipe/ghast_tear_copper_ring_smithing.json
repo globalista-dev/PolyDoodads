@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_ghast_tear",
+  "base": "polydoodads:copper_ring",
+  "result": {
+    "id": "polydoodads:ghast_tear_copper_ring"
+  },
+  "template": "minecraft:copper_ingot"
+}

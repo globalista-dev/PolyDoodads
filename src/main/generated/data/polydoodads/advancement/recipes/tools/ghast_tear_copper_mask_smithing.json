@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_copper_mask": {
+      "conditions": {
+        "items": [
+          {
+            "items": "polydoodads:copper_mask"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "polydoodads:ghast_tear_copper_mask_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_copper_mask"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "polydoodads:ghast_tear_copper_mask_smithing"
+    ]
+  }
+}

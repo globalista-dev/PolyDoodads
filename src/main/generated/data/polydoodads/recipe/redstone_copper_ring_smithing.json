@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_redstone",
+  "base": "polydoodads:copper_ring",
+  "result": {
+    "id": "polydoodads:redstone_copper_ring"
+  },
+  "template": "minecraft:copper_ingot"
+}

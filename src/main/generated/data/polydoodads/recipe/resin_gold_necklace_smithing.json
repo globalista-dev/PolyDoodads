@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_resin",
+  "base": "polydoodads:gold_necklace",
+  "result": {
+    "id": "polydoodads:resin_gold_necklace"
+  },
+  "template": "minecraft:gold_ingot"
+}

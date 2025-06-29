@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iron_circlet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "polydoodads:iron_circlet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "polydoodads:resin_iron_circlet_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_iron_circlet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "polydoodads:resin_iron_circlet_smithing"
+    ]
+  }
+}

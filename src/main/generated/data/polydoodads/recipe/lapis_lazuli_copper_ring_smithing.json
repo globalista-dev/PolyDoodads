@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_lapis_lazuli",
+  "base": "polydoodads:copper_ring",
+  "result": {
+    "id": "polydoodads:lapis_lazuli_copper_ring"
+  },
+  "template": "minecraft:copper_ingot"
+}

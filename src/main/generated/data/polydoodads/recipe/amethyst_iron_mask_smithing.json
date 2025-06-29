@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_amethyst",
+  "base": "polydoodads:iron_mask",
+  "result": {
+    "id": "polydoodads:amethyst_iron_mask"
+  },
+  "template": "minecraft:iron_ingot"
+}

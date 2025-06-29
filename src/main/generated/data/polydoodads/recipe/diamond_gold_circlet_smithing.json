@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_diamond",
+  "base": "polydoodads:gold_circlet",
+  "result": {
+    "id": "polydoodads:diamond_gold_circlet"
+  },
+  "template": "minecraft:gold_ingot"
+}

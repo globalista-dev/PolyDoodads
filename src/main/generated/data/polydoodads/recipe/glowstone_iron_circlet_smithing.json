@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_glowstone",
+  "base": "polydoodads:iron_circlet",
+  "result": {
+    "id": "polydoodads:glowstone_iron_circlet"
+  },
+  "template": "minecraft:iron_ingot"
+}

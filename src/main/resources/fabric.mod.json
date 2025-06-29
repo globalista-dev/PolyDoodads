@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "polydoodads",
+	"version": "${version}",
+	"name": "PolyDoodads",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/polydoodads/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.globalista.polydoodads.PolyDoodads"
+		],
+		"fabric-datagen": [
+			"com.globalista.polydoodads.datagen.Datagen"
+		]
+	},
+	"mixins": [
+		"polydoodads.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.6",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_quartz",
+  "base": "polydoodads:iron_circlet",
+  "result": {
+    "id": "polydoodads:quartz_iron_circlet"
+  },
+  "template": "minecraft:iron_ingot"
+}

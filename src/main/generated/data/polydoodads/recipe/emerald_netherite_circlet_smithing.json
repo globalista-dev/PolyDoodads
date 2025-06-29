@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_emerald",
+  "base": "polydoodads:netherite_circlet",
+  "result": {
+    "id": "polydoodads:emerald_netherite_circlet"
+  },
+  "template": "minecraft:netherite_ingot"
+}

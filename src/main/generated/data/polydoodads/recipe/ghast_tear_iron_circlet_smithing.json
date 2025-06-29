@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_ghast_tear",
+  "base": "polydoodads:iron_circlet",
+  "result": {
+    "id": "polydoodads:ghast_tear_iron_circlet"
+  },
+  "template": "minecraft:iron_ingot"
+}

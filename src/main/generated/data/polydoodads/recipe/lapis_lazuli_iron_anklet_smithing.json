@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_lapis_lazuli",
+  "base": "polydoodads:iron_anklet",
+  "result": {
+    "id": "polydoodads:lapis_lazuli_iron_anklet"
+  },
+  "template": "minecraft:iron_ingot"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_glowstone",
+  "base": "polydoodads:iron_anklet",
+  "result": {
+    "id": "polydoodads:glowstone_iron_anklet"
+  },
+  "template": "minecraft:iron_ingot"
+}

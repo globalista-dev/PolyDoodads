@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_emerald",
+  "base": "polydoodads:copper_ring",
+  "result": {
+    "id": "polydoodads:emerald_copper_ring"
+  },
+  "template": "minecraft:copper_ingot"
+}

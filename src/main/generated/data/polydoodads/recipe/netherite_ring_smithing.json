@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "polydoodads:gold_ring",
+  "result": {
+    "id": "polydoodads:netherite_ring"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

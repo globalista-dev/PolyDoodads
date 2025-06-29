@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "polydoodads:item/base/iron/circlet",
+    "layer1": "polydoodads:item/gem/circlet/quartz"
+  }
+}

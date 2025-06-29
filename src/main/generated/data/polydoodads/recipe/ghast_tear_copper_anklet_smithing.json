@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_ghast_tear",
+  "base": "polydoodads:copper_anklet",
+  "result": {
+    "id": "polydoodads:ghast_tear_copper_anklet"
+  },
+  "template": "minecraft:copper_ingot"
+}

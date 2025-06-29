@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_lapis_lazuli",
+  "base": "polydoodads:gold_ring",
+  "result": {
+    "id": "polydoodads:lapis_lazuli_gold_ring"
+  },
+  "template": "minecraft:gold_ingot"
+}

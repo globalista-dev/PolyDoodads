@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_quartz",
+  "base": "polydoodads:netherite_necklace",
+  "result": {
+    "id": "polydoodads:quartz_netherite_necklace"
+  },
+  "template": "minecraft:netherite_ingot"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_ghast_tear",
+  "base": "polydoodads:netherite_circlet",
+  "result": {
+    "id": "polydoodads:ghast_tear_netherite_circlet"
+  },
+  "template": "minecraft:netherite_ingot"
+}

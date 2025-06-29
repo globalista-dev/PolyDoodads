@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "polydoodads:cut_ghast_tear",
+  "base": "polydoodads:gold_mask",
+  "result": {
+    "id": "polydoodads:ghast_tear_gold_mask"
+  },
+  "template": "minecraft:gold_ingot"
+}
