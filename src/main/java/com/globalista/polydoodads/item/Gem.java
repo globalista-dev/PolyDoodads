@@ -26,19 +26,19 @@ public class Gem {
     }
 
     public static Gem QUARTZ = new Gem("quartz", Items.QUARTZ, Identifier.of("movement_speed"),
-            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.1f);
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.05f);
 
     public static Gem DIAMOND = new Gem("diamond", Items.DIAMOND, Identifier.of("attack_damage"),
-            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.1f);
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.05f);
 
     public static Gem EMERALD = new Gem("emerald", Items.EMERALD, Identifier.of("luck"),
-            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.25f);
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.125f);
 
     public static Gem LAPIS_LAZULI = new Gem("lapis_lazuli", Items.LAPIS_LAZULI, Identifier.of("oxygen_bonus"),
-            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.25f);
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.125f);
 
     public static Gem AMETHYST = new Gem("amethyst", Items.AMETHYST_SHARD, Identifier.of("armor_toughness"),
-            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.1f);
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.05f);
 
     public static Gem REDSTONE = new Gem("redstone", Items.REDSTONE, Identifier.of("max_health"),
             EntityAttributeModifier.Operation.ADD_VALUE, 2.0f);
@@ -47,10 +47,10 @@ public class Gem {
             EntityAttributeModifier.Operation.ADD_VALUE, 1f);
 
     public static Gem GLOWSTONE = new Gem("glowstone", Items.GLOWSTONE, Identifier.of("attack_speed"),
-            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.1f);
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.05f);
 
     public static Gem GHAST_TEAR = new Gem ("ghast_tear", Items.GHAST_TEAR, Identifier.of("explosion_knockback_resistance"),
-            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.15f);
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE, 0.1f);
 
     static {
         GEMS.add(QUARTZ);

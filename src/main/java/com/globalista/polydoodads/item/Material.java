@@ -26,16 +26,16 @@ public class Material {
     }
 
     public static Material COPPER = new Material("copper", Items.COPPER_INGOT, 1f,
-            new EntityAttributeModifier(Identifier.of("armor"), 0.5f, EntityAttributeModifier.Operation.ADD_VALUE), null);
+            new EntityAttributeModifier(Identifier.of("armor"), 1f, EntityAttributeModifier.Operation.ADD_VALUE), null);
     public static Material IRON = new Material("iron", Items.IRON_INGOT, 1.5f,
-            new EntityAttributeModifier(Identifier.of("armor"), 1.0f, EntityAttributeModifier.Operation.ADD_VALUE),
-            new EntityAttributeModifier(Identifier.of("knockback_resistance"), 0.1f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new EntityAttributeModifier(Identifier.of("armor"), 2f, EntityAttributeModifier.Operation.ADD_VALUE),
+            new EntityAttributeModifier(Identifier.of("knockback_resistance"), 0.05f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static Material GOLD = new Material("gold", Items.GOLD_INGOT, 2f,
-            new EntityAttributeModifier(Identifier.of("armor"), 0.5f, EntityAttributeModifier.Operation.ADD_VALUE),
-            new EntityAttributeModifier(Identifier.of("block_break_speed"), 0.25f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new EntityAttributeModifier(Identifier.of("armor"), 1f, EntityAttributeModifier.Operation.ADD_VALUE),
+            new EntityAttributeModifier(Identifier.of("block_break_speed"), 0.05f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static Material NETHERITE = new Material("netherite", Items.NETHERITE_INGOT, 3f,
-            new EntityAttributeModifier(Identifier.of("armor"), 2.0f, EntityAttributeModifier.Operation.ADD_VALUE),
-            new EntityAttributeModifier(Identifier.of("burning_time"), -0.25f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            new EntityAttributeModifier(Identifier.of("armor"), 3f, EntityAttributeModifier.Operation.ADD_VALUE),
+            new EntityAttributeModifier(Identifier.of("burning_time"), -0.1f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     static {
         MATERIALS.add(COPPER);

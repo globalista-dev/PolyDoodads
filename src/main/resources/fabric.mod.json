@@ -3,13 +3,13 @@
 	"id": "polydoodads",
 	"version": "${version}",
 	"name": "PolyDoodads",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Polymer mod that adds server-side trinkets-compatible items",
 	"authors": [
-		"Me!"
+		"yGlobalista"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/globalista-dev",
+		"sources": "https://github.com/globalista-dev/PolyDoodads"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/polydoodads/icon.png",
@@ -22,9 +22,6 @@
 			"com.globalista.polydoodads.datagen.Datagen"
 		]
 	},
-	"mixins": [
-		"polydoodads.mixins.json"
-	],
 	"depends": {
 		"fabricloader": ">=0.16.14",
 		"minecraft": "~1.21.6",
