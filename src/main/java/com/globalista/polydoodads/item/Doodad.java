@@ -41,15 +41,11 @@ public class Doodad extends TrinketItem implements PolymerItem {
 
     public Multimap<RegistryEntry<EntityAttribute>, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, Identifier slotIdentifier) {
         var modifiers = super.getModifiers(stack, slot, entity, slotIdentifier);
-        for (var entry : this.component.modifiers()) {
-            modifiers.put(entry.attribute(), new EntityAttributeModifier(slotIdentifier, entry.modifier().value(), entry.modifier().operation()));
-        }
+        for (var entry : this.component.modifiers()) { modifiers.put(entry.attribute(), new EntityAttributeModifier(slotIdentifier, entry.modifier().value(), entry.modifier().operation())); }
         return modifiers;
     }
 
-    public void setComponent(AttributeModifiersComponent component) {
-        this.component = component;
-    }
+    public void setComponent(AttributeModifiersComponent component) { this.component = component; }
 
     public static void create(String name, Rarity rarity, List<EntityAttributeModifier> modifiers) {
 

@@ -24,11 +24,11 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21.6",
+		"minecraft": ">=1.21.6",
 		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
+		"fabric-api": "*",
+		"trinkets": "*",
+		"polymer-core": ">=0.7.5",
+		"polymer-resource-pack": ">=0.7.5"
 	}
 }

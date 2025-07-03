@@ -51,7 +51,7 @@ dependencies {
 	//modImplementation include("eu.pb4:factorytools:0.7.0+1.21.6")
 
 	// Trinkets
-	modImplementation "eu.pb4.polyport:trinkets:3.11.0-beta.1+polymerport.2"
+	modImplementation "eu.pb4.polyport:trinkets:${project.trinkets_version}"
 	
 }
 
