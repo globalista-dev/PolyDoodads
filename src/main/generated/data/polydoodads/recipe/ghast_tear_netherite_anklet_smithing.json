@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_ghast_tear",
-  "base": "polydoodads:netherite_anklet",
+  "addition": {
+    "item": "polydoodads:cut_ghast_tear"
+  },
+  "base": {
+    "item": "polydoodads:netherite_anklet"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:ghast_tear_netherite_anklet"
   },
-  "template": "minecraft:netherite_ingot"
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  }
 }

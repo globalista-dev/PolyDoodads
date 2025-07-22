@@ -24,15 +24,14 @@ public class EnglishLangProvider extends FabricLanguageProvider {
             t.add(doodad, name);
         }
 
-        t.add(ModItems.CUT_AMETHYST, "Cut Amethyst");
-        t.add(ModItems.CUT_DIAMOND, "Cut Diamond");
-        t.add(ModItems.CUT_EMERALD, "Cut Emerald");
-        t.add(ModItems.CUT_QUARTZ, "Cut Quartz");
-        t.add(ModItems.CUT_GLOWSTONE, "Cut Glowstone");
-        t.add(ModItems.CUT_GHAST_TEAR, "Cut Ghast Tear");
-        t.add(ModItems.CUT_LAPIS_LAZULI, "Cut Lapis Lazuli");
-        t.add(ModItems.CUT_REDSTONE, "Cut Redstone");
-        t.add(ModItems.CUT_RESIN, "Cut Resin");
+        t.add(Helper.getItem("cut_amethyst"), "Cut Amethyst");
+        t.add(Helper.getItem("cut_diamond"), "Cut Diamond");
+        t.add(Helper.getItem("cut_emerald"), "Cut Emerald");
+        t.add(Helper.getItem("cut_quartz"), "Cut Quartz");
+        t.add(Helper.getItem("cut_glowstone"), "Cut Glowstone");
+        t.add(Helper.getItem("cut_ghast_tear"), "Cut Ghast Tear");
+        t.add(Helper.getItem("cut_lapis_lazuli"), "Cut Lapis Lazuli");
+        t.add(Helper.getItem("cut_redstone"), "Cut Redstone");
 
         t.add("itemGroup.polydoodads", "PolyDoodads");
 

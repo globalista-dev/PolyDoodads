@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_amethyst",
-  "base": "polydoodads:gold_mask",
+  "addition": {
+    "item": "polydoodads:cut_amethyst"
+  },
+  "base": {
+    "item": "polydoodads:gold_mask"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:amethyst_gold_mask"
   },
-  "template": "minecraft:gold_ingot"
+  "template": {
+    "item": "minecraft:gold_ingot"
+  }
 }

@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_emerald",
-  "base": "polydoodads:netherite_necklace",
+  "addition": {
+    "item": "polydoodads:cut_emerald"
+  },
+  "base": {
+    "item": "polydoodads:netherite_necklace"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:emerald_netherite_necklace"
   },
-  "template": "minecraft:netherite_ingot"
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  }
 }

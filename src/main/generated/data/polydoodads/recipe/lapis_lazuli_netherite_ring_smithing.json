@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_lapis_lazuli",
-  "base": "polydoodads:netherite_ring",
+  "addition": {
+    "item": "polydoodads:cut_lapis_lazuli"
+  },
+  "base": {
+    "item": "polydoodads:netherite_ring"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:lapis_lazuli_netherite_ring"
   },
-  "template": "minecraft:netherite_ingot"
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  }
 }

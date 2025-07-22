@@ -74,7 +74,6 @@ public class PortugueseLangProvider extends FabricLanguageProvider {
         TRANSLATION.put("Lapis Lazuli", "Lápis-lazúli");
         TRANSLATION.put("Amethyst", "Ametista");
         TRANSLATION.put("Redstone", "Redstone");
-        TRANSLATION.put("Resin", "Resina");
         TRANSLATION.put("Glowstone", "Glowstone");
         TRANSLATION.put("Ghast Tear", "Lágrima de Ghast");
         TRANSLATION.put("Ring", "Anel");
@@ -93,15 +92,14 @@ public class PortugueseLangProvider extends FabricLanguageProvider {
             t.add(doodad, name);
         }
 
-        t.add(ModItems.CUT_AMETHYST, "Ametista Lapidada");
-        t.add(ModItems.CUT_DIAMOND, "Diamante Lapidado");
-        t.add(ModItems.CUT_EMERALD, "Esmeralda Lapidada");
-        t.add(ModItems.CUT_QUARTZ, "Quartzo Lapidado");
-        t.add(ModItems.CUT_GLOWSTONE, "Glowstone Lapidada");
-        t.add(ModItems.CUT_GHAST_TEAR, "Lágrima de Ghast Lapidada");
-        t.add(ModItems.CUT_LAPIS_LAZULI, "Lápis-lazúli Lapidado");
-        t.add(ModItems.CUT_REDSTONE, "Redstone Lapidada");
-        t.add(ModItems.CUT_RESIN, "Resina Lapidada");
+        t.add(Helper.getItem("cut_amethyst"), "Ametista Lapidada");
+        t.add(Helper.getItem("cut_diamond"), "Diamante Lapidado");
+        t.add(Helper.getItem("cut_emerald"), "Esmeralda Lapidada");
+        t.add(Helper.getItem("cut_quartz"), "Quartzo Lapidado");
+        t.add(Helper.getItem("cut_glowstone"), "Glowstone Lapidada");
+        t.add(Helper.getItem("cut_ghast_tear"), "Lágrima de Ghast Lapidada");
+        t.add(Helper.getItem("cut_lapis_lazuli"), "Lápis-lazúli Lapidado");
+        t.add(Helper.getItem("cut_redstone"), "Redstone Lapidada");
 
         t.add("itemGroup.polydoodads", "PolyDoodads");
 

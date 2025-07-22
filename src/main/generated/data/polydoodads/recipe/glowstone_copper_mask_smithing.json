@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_glowstone",
-  "base": "polydoodads:copper_mask",
+  "addition": {
+    "item": "polydoodads:cut_glowstone"
+  },
+  "base": {
+    "item": "polydoodads:copper_mask"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:glowstone_copper_mask"
   },
-  "template": "minecraft:copper_ingot"
+  "template": {
+    "item": "minecraft:copper_ingot"
+  }
 }

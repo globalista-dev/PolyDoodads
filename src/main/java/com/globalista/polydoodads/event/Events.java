@@ -34,7 +34,6 @@ public class Events {
         CUTMAP.put(Items.REDSTONE_BLOCK, Helper.getItem("cut_redstone"));
         CUTMAP.put(Items.GLOWSTONE, Helper.getItem("cut_glowstone"));
         CUTMAP.put(Items.GHAST_TEAR, Helper.getItem("cut_ghast_tear"));
-        CUTMAP.put(Items.RESIN_CLUMP, Helper.getItem("cut_resin"));
     }
 
     static {
@@ -49,7 +48,7 @@ public class Events {
                 world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.PLAYERS, 0.5f, 1f);
                 ExperienceOrbEntity.spawn((ServerWorld) world, hitResult.getPos(), 1);
                 itemStack.decrement(1);
-                return ActionResult.SUCCESS_SERVER;
+                return ActionResult.SUCCESS;
 
             }
 

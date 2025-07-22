@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_quartz",
-  "base": "polydoodads:netherite_circlet",
+  "addition": {
+    "item": "polydoodads:cut_quartz"
+  },
+  "base": {
+    "item": "polydoodads:netherite_circlet"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:quartz_netherite_circlet"
   },
-  "template": "minecraft:netherite_ingot"
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  }
 }

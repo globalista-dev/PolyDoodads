@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_amethyst",
-  "base": "polydoodads:gold_anklet",
+  "addition": {
+    "item": "polydoodads:cut_amethyst"
+  },
+  "base": {
+    "item": "polydoodads:gold_anklet"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:amethyst_gold_anklet"
   },
-  "template": "minecraft:gold_ingot"
+  "template": {
+    "item": "minecraft:gold_ingot"
+  }
 }

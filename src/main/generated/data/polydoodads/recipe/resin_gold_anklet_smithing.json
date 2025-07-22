@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_resin",
-  "base": "polydoodads:gold_anklet",
-  "result": {
-    "id": "polydoodads:resin_gold_anklet"
-  },
-  "template": "minecraft:gold_ingot"
-}

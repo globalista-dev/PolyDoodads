@@ -7,7 +7,6 @@
     "polydoodads:lapis_lazuli_copper_ring",
     "polydoodads:amethyst_copper_ring",
     "polydoodads:redstone_copper_ring",
-    "polydoodads:resin_copper_ring",
     "polydoodads:glowstone_copper_ring",
     "polydoodads:ghast_tear_copper_ring",
     "polydoodads:iron_ring",
@@ -17,7 +16,6 @@
     "polydoodads:lapis_lazuli_iron_ring",
     "polydoodads:amethyst_iron_ring",
     "polydoodads:redstone_iron_ring",
-    "polydoodads:resin_iron_ring",
     "polydoodads:glowstone_iron_ring",
     "polydoodads:ghast_tear_iron_ring",
     "polydoodads:gold_ring",
@@ -27,7 +25,6 @@
     "polydoodads:lapis_lazuli_gold_ring",
     "polydoodads:amethyst_gold_ring",
     "polydoodads:redstone_gold_ring",
-    "polydoodads:resin_gold_ring",
     "polydoodads:glowstone_gold_ring",
     "polydoodads:ghast_tear_gold_ring",
     "polydoodads:netherite_ring",
@@ -37,7 +34,6 @@
     "polydoodads:lapis_lazuli_netherite_ring",
     "polydoodads:amethyst_netherite_ring",
     "polydoodads:redstone_netherite_ring",
-    "polydoodads:resin_netherite_ring",
     "polydoodads:glowstone_netherite_ring",
     "polydoodads:ghast_tear_netherite_ring"
   ]

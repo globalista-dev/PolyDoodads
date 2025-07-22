@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_amethyst",
-  "base": "polydoodads:netherite_mask",
+  "addition": {
+    "item": "polydoodads:cut_amethyst"
+  },
+  "base": {
+    "item": "polydoodads:netherite_mask"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:amethyst_netherite_mask"
   },
-  "template": "minecraft:netherite_ingot"
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  }
 }

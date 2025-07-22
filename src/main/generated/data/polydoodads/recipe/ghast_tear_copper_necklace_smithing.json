@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_ghast_tear",
-  "base": "polydoodads:copper_necklace",
+  "addition": {
+    "item": "polydoodads:cut_ghast_tear"
+  },
+  "base": {
+    "item": "polydoodads:copper_necklace"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:ghast_tear_copper_necklace"
   },
-  "template": "minecraft:copper_ingot"
+  "template": {
+    "item": "minecraft:copper_ingot"
+  }
 }

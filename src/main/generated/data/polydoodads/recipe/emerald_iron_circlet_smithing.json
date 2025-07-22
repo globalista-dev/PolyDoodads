@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_emerald",
-  "base": "polydoodads:iron_circlet",
+  "addition": {
+    "item": "polydoodads:cut_emerald"
+  },
+  "base": {
+    "item": "polydoodads:iron_circlet"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:emerald_iron_circlet"
   },
-  "template": "minecraft:iron_ingot"
+  "template": {
+    "item": "minecraft:iron_ingot"
+  }
 }

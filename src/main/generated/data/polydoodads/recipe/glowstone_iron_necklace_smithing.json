@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_glowstone",
-  "base": "polydoodads:iron_necklace",
+  "addition": {
+    "item": "polydoodads:cut_glowstone"
+  },
+  "base": {
+    "item": "polydoodads:iron_necklace"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:glowstone_iron_necklace"
   },
-  "template": "minecraft:iron_ingot"
+  "template": {
+    "item": "minecraft:iron_ingot"
+  }
 }

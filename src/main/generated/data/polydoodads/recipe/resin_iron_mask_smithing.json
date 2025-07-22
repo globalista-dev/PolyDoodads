@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_resin",
-  "base": "polydoodads:iron_mask",
-  "result": {
-    "id": "polydoodads:resin_iron_mask"
-  },
-  "template": "minecraft:iron_ingot"
-}

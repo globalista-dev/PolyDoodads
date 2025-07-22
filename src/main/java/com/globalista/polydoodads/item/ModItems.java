@@ -7,6 +7,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -71,27 +72,29 @@ public class ModItems {
                 }
             }
         }
+
+        registerItem("cut_quartz");
+        registerItem("cut_diamond");
+        registerItem("cut_emerald");
+        registerItem("cut_lapis_lazuli");
+        registerItem("cut_amethyst");
+        registerItem("cut_redstone");
+        registerItem("cut_resin");
+        registerItem("cut_glowstone");
+        registerItem("cut_ghast_tear");
+
     }
 
-    public static Item CUT_QUARTZ = registerItem("cut_quartz");
-    public static Item CUT_DIAMOND = registerItem("cut_diamond");
-    public static Item CUT_EMERALD = registerItem("cut_emerald");
-    public static Item CUT_LAPIS_LAZULI = registerItem("cut_lapis_lazuli");
-    public static Item CUT_AMETHYST = registerItem("cut_amethyst");
-    public static Item CUT_REDSTONE = registerItem("cut_redstone");
-    public static Item CUT_RESIN = registerItem("cut_resin");
-    public static Item CUT_GLOWSTONE = registerItem("cut_glowstone");
-    public static Item CUT_GHAST_TEAR = registerItem("cut_ghast_tear");
+    public static void registerItem(String name, Item.Settings settings) {
 
-    public static Item registerItem(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
-        var key = RegistryKey.of(RegistryKeys.ITEM, Helper.id(name));
-        Item item = factory.apply(settings.registryKey(key));
+        Item item = new AutoPolymerItem(settings, name);
+        Registry.register(Registries.ITEM, Helper.id(name), item);
         ITEMS.add(item);
-        return Registry.register(Registries.ITEM, key, item);
+
     }
 
-    public static Item registerItem(String name) {
-        return registerItem(name, SimplePolymerItem::new, new Item.Settings());
+    public static void registerItem(String name) {
+        registerItem(name, new Item.Settings());
     }
 
     public static void callItems() {

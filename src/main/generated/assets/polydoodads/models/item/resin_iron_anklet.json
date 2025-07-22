@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "polydoodads:item/base/iron/anklet",
-    "layer1": "polydoodads:item/gem/anklet/resin"
-  }
-}

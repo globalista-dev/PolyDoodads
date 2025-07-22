@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_ghast_tear",
-  "base": "polydoodads:gold_ring",
+  "addition": {
+    "item": "polydoodads:cut_ghast_tear"
+  },
+  "base": {
+    "item": "polydoodads:gold_ring"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:ghast_tear_gold_ring"
   },
-  "template": "minecraft:gold_ingot"
+  "template": {
+    "item": "minecraft:gold_ingot"
+  }
 }

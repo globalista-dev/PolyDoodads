@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_resin",
-  "base": "polydoodads:copper_ring",
-  "result": {
-    "id": "polydoodads:resin_copper_ring"
-  },
-  "template": "minecraft:copper_ingot"
-}

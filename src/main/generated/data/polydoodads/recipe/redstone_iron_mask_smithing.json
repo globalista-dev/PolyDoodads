@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_redstone",
-  "base": "polydoodads:iron_mask",
+  "addition": {
+    "item": "polydoodads:cut_redstone"
+  },
+  "base": {
+    "item": "polydoodads:iron_mask"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:redstone_iron_mask"
   },
-  "template": "minecraft:iron_ingot"
+  "template": {
+    "item": "minecraft:iron_ingot"
+  }
 }

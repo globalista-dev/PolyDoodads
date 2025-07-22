@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_redstone",
-  "base": "polydoodads:gold_circlet",
+  "addition": {
+    "item": "polydoodads:cut_redstone"
+  },
+  "base": {
+    "item": "polydoodads:gold_circlet"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:redstone_gold_circlet"
   },
-  "template": "minecraft:gold_ingot"
+  "template": {
+    "item": "minecraft:gold_ingot"
+  }
 }

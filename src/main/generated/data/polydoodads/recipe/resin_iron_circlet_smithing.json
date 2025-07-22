@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_resin",
-  "base": "polydoodads:iron_circlet",
-  "result": {
-    "id": "polydoodads:resin_iron_circlet"
-  },
-  "template": "minecraft:iron_ingot"
-}

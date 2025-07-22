@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_diamond",
-  "base": "polydoodads:gold_necklace",
+  "addition": {
+    "item": "polydoodads:cut_diamond"
+  },
+  "base": {
+    "item": "polydoodads:gold_necklace"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:diamond_gold_necklace"
   },
-  "template": "minecraft:gold_ingot"
+  "template": {
+    "item": "minecraft:gold_ingot"
+  }
 }

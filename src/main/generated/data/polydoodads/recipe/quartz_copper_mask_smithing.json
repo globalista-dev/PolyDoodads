@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_quartz",
-  "base": "polydoodads:copper_mask",
+  "addition": {
+    "item": "polydoodads:cut_quartz"
+  },
+  "base": {
+    "item": "polydoodads:copper_mask"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:quartz_copper_mask"
   },
-  "template": "minecraft:copper_ingot"
+  "template": {
+    "item": "minecraft:copper_ingot"
+  }
 }

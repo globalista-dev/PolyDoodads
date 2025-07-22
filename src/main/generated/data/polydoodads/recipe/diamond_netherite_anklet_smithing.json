@@ -1,9 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "polydoodads:cut_diamond",
-  "base": "polydoodads:netherite_anklet",
+  "addition": {
+    "item": "polydoodads:cut_diamond"
+  },
+  "base": {
+    "item": "polydoodads:netherite_anklet"
+  },
   "result": {
+    "count": 1,
     "id": "polydoodads:diamond_netherite_anklet"
   },
-  "template": "minecraft:netherite_ingot"
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  }
 }
