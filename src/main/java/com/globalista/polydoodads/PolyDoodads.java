@@ -29,14 +29,6 @@ public class PolyDoodads implements ModInitializer {
 		ModItems.callItems();
 		Events.callEvents();
 
-		for (Item doodad : Doodad.DOODADS) {
-			System.out.println(doodad.toString());
-		}
-
-		for (Item item : ModItems.ITEMS) {
-			System.out.println(item.toString());
-		}
-
 		PolymerResourcePackUtils.addModAssets(MOD_ID);
 		PolymerResourcePackUtils.markAsRequired();
 

@@ -96,7 +96,6 @@ public class ModItems {
         registerItem("cut_lapis_lazuli");
         registerItem("cut_amethyst");
         registerItem("cut_redstone");
-        registerItem("cut_resin");
         registerItem("cut_glowstone");
         registerItem("cut_ghast_tear");
     }
@@ -115,17 +114,16 @@ public class ModItems {
         ItemGroup polymerGroup = FabricItemGroup.builder()
                 .icon(() -> new ItemStack(Helper.getItem("gold_ring")))
                 .displayName(Text.translatable("itemGroup.polydoodads"))
+                .entries((displayContext, entries) -> {
+                    for (Item doodad : Doodad.DOODADS) {
+                        entries.add(Helper.getItem(doodad.toString()));
+                    }
+                    for (Item item : ITEMS) {
+                        entries.add(Helper.getItem(item.toString()));
+                    }
+                })
                 .build();
 
         PolymerItemGroupUtils.registerPolymerItemGroup(Helper.id("polydoodads"), polymerGroup);
-
-        ItemGroupEvents.modifyEntriesEvent(POLYMER_GROUP_KEY).register(entries -> {
-            for (Item doodad : Doodad.DOODADS) {
-                entries.add(Helper.getItem(doodad.toString()));
-            }
-            for (Item item : ITEMS) {
-                entries.add(Helper.getItem(item.toString()));
-            }
-        });
     }
 }
