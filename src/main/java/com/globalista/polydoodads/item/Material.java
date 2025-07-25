@@ -53,22 +53,22 @@ public class Material {
     public static Material IRON = new Material(
             "iron", Items.IRON_INGOT, 1.5f,
             "generic.armor", 2.0, EntityAttributeModifier.Operation.ADDITION,
-            "generic.knockback_resistance", 0.05, EntityAttributeModifier.Operation.MULTIPLY_BASE,
-            EntityAttributes.GENERIC_ARMOR, EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE
+            "generic.armor_toughness", 0.05, EntityAttributeModifier.Operation.MULTIPLY_BASE,
+            EntityAttributes.GENERIC_ARMOR, EntityAttributes.GENERIC_ARMOR_TOUGHNESS
     );
 
     public static Material GOLD = new Material(
             "gold", Items.GOLD_INGOT, 2f,
             "generic.armor", 1.0, EntityAttributeModifier.Operation.ADDITION,
-            "generic.knockback_resistance", 0.025, EntityAttributeModifier.Operation.MULTIPLY_BASE,
-            EntityAttributes.GENERIC_ARMOR, EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE
+            "generic.armor_toughness", 0.025, EntityAttributeModifier.Operation.MULTIPLY_BASE,
+            EntityAttributes.GENERIC_ARMOR, EntityAttributes.GENERIC_ARMOR_TOUGHNESS
     );
 
     public static Material NETHERITE = new Material(
             "netherite", Items.NETHERITE_INGOT, 3f,
             "generic.armor", 3.0, EntityAttributeModifier.Operation.ADDITION,
-            "generic.knockback_resistance", 0.1, EntityAttributeModifier.Operation.MULTIPLY_BASE,
-            EntityAttributes.GENERIC_ARMOR, EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE
+            "generic.armor_toughness", 0.1, EntityAttributeModifier.Operation.MULTIPLY_BASE,
+            EntityAttributes.GENERIC_ARMOR, EntityAttributes.GENERIC_ARMOR_TOUGHNESS
     );
 
     static {
