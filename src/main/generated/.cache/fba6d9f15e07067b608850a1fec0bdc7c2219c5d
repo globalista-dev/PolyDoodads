@@ -1,12 +1,12 @@
-// 1.21.1	2025-07-22T15:34:38.7878169	PolyDoodads/Tags for minecraft:item
-d4ad4e98491de154787c3211f5cdecf539d9cf7f data\trinkets\tags\item\chest\necklace.json
-1c150c37af590628ff4cb48edca0a28be9499ed0 data\trinkets\tags\item\hand\ring.json
-f618904e5670649e1f91a88285340d478101880e data\polydoodads\tags\item\rings.json
-6c46d4508b66539d74351c45675211a8dee5d695 data\polydoodads\tags\item\masks.json
-fa98775942158c2f6aef9922933e9533e8da0b1c data\trinkets\tags\item\head\hat.json
-f3ff9fe0e6fdf405e57a74a31f2e53915632656d data\polydoodads\tags\item\anklets.json
-5e98dc89f572ae43e2d265da1aebc416a995e25c data\polydoodads\tags\item\necklaces.json
-843a8baba5eba35a6d819b845e424cd3b7974651 data\trinkets\tags\item\feet\aglet.json
-1c150c37af590628ff4cb48edca0a28be9499ed0 data\trinkets\tags\item\offhand\ring.json
-1c05d848b3926962eb4f7a0d3cf96ded8959beea data\polydoodads\tags\item\circlets.json
-28a1c98f00be220b3322bc47abed32b83d2683e7 data\trinkets\tags\item\head\face.json
+// 1.20.1	2025-07-25T11:26:59.4860433	PolyDoodads/Tags for minecraft:item
+fd58a5ea359e7166cce906a91e90b9b84602c788 data\trinkets\tags\items\chest\necklace.json
+cdb8574bbb169eff20ff3528a546d2f2cc921bee data\trinkets\tags\items\head\face.json
+465498bf9360f18ddad7aa2a4fb8fb287f775739 data\trinkets\tags\items\offhand\ring.json
+9853bd23c659aaa68d4a57d9a8f792aa1762c5b0 data\polydoodads\tags\items\rings.json
+34503d061f62f6a9ca2f9f0f8778fc496e4a6e5e data\polydoodads\tags\items\circlets.json
+774f876ef78fc06e12eebf71c4cf17d2d2f32f98 data\polydoodads\tags\items\masks.json
+d8f617edc0811787a0f76e5396ab24cb1d1c780f data\trinkets\tags\items\head\hat.json
+347565df91ef23214dad2aa42c25ac4de8f70ecb data\polydoodads\tags\items\anklets.json
+465498bf9360f18ddad7aa2a4fb8fb287f775739 data\trinkets\tags\items\hand\ring.json
+7227d183db71c421c7edb7f3f387fffd209ad9c6 data\polydoodads\tags\items\necklaces.json
+f3901bba5baed13e4fef3470f68857f2df1ced3d data\trinkets\tags\items\feet\aglet.json

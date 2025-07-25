@@ -2,15 +2,13 @@ package com.globalista.polydoodads.item;
 
 import com.globalista.polydoodads.Helper;
 import com.globalista.polydoodads.PolyDoodads;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import eu.pb4.polymer.core.api.item.PolymerItem;
-import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import eu.pb4.polymer.resourcepack.api.PolymerModelData;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
-import net.minecraft.component.type.AttributeModifierSlot;
-import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -19,83 +17,123 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import org.jetbrains.annotations.Nullable;
-import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
+import java.util.UUID;
 
 public class Doodad extends TrinketItem implements PolymerItem {
 
-    public static ArrayList<Item> DOODADS = new ArrayList<>();
+    public static final ArrayList<Item> DOODADS = new ArrayList<>();
 
-    private String name;
-    private Rarity rarity;
-    private AttributeModifiersComponent component = AttributeModifiersComponent.builder().build();
+    private final String name;
     private final PolymerModelData polymerModelData;
+    private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+    private List<AttributeEntry> configurableModifiers = List.of();
 
-    public Doodad(Settings settings, String name) {
+    public Doodad(Settings settings, String name, Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers) {
         super(settings);
-        polymerModelData = PolymerResourcePackUtils.requestModel(Items.GOLD_NUGGET, Helper.id(name).withPrefixedPath("item/"));
+        this.name = name;
+        this.polymerModelData = PolymerResourcePackUtils.requestModel(
+                Items.GOLD_NUGGET,
+                Helper.id(name).withPrefixedPath("item/")
+        );
+        this.attributeModifiers = attributeModifiers;
     }
 
-    public Multimap<RegistryEntry<EntityAttribute>, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, Identifier slotIdentifier) {
-        var modifiers = super.getModifiers(stack, slot, entity, slotIdentifier);
-        for (var entry : this.component.modifiers()) { modifiers.put(entry.attribute(), new EntityAttributeModifier(slotIdentifier, entry.modifier().value(), entry.modifier().operation())); }
+    public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
+        var modifiers = super.getModifiers(stack, slot, entity, uuid);
+        for (var modifier : this.configurableModifiers) {
+            modifiers.put(modifier.attribute,
+                    new EntityAttributeModifier(modifier.attributeId, modifier.value, modifier.operation));
+        }
         return modifiers;
     }
 
-    public void setComponent(AttributeModifiersComponent component) { this.component = component; }
+    public record Modifier(EntityAttribute attribute, String name, float value, EntityAttributeModifier.Operation operation) { }
 
-    public static void create(String name, Rarity rarity, List<EntityAttributeModifier> modifiers) {
+    public void setModifiers(List<AttributeEntry> modifiers){
+        this.configurableModifiers = modifiers;
+    }
 
-        AttributeModifiersComponent.Builder attributes = AttributeModifiersComponent.builder();
+    public static void create(String name, Rarity rarity, List<AttributeEntry> entries) {
 
-        for (EntityAttributeModifier modifier : modifiers) {
-            var attribute = Registries.ATTRIBUTE.getEntry(modifier.id());
-            attributes.add(attribute.get(), new EntityAttributeModifier(Identifier.of(PolyDoodads.MOD_ID, "modifier"), modifier.value(), modifier.operation()), AttributeModifierSlot.ANY);
-        }
 
         Settings settings = name.contains("netherite") ? new Settings().fireproof() : new Settings();
-
-        register(name, settings.rarity(rarity).maxCount(1), attributes);
+        register(name, settings.rarity(rarity).maxCount(1), entries);
     }
 
-    public static void create(String name, List<EntityAttributeModifier> modifiers) {
-        create(name, Rarity.COMMON, modifiers);
+    public static void create(String name, List<AttributeEntry> entries) {
+        create(name, Rarity.COMMON, entries);
     }
 
-    private static void register(String name, Settings settings, AttributeModifiersComponent.Builder attributes) {
+    private static void register(String name, Settings settings, List<AttributeEntry> entries) {
 
-        Doodad item = new Doodad(settings, name);
-        item.setComponent(attributes.build());
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
 
+        for (AttributeEntry entry : entries) {
+            EntityAttribute attribute = Registries.ATTRIBUTE.get(new Identifier(entry.attributeId()));
+            if (attribute == null) {
+                PolyDoodads.LOGGER.warn("Unknown attribute: " + entry.attributeId());
+                continue;
+            }
+            builder.put(attribute, new EntityAttributeModifier(
+                    "modifier_" + name, // Use a string ID here
+                    entry.value(),
+                    entry.operation()
+            ));
+        }
+
+
+        Doodad item = new Doodad(settings, name, builder.build());
+        item.setModifiers(entries);
         Registry.register(Registries.ITEM, Helper.id(name), item);
-
-        DOODADS.add(item);
-
+        DOODADS.add(Helper.getItem(name));
     }
-
 
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return this.polymerModelData.item();
+        return polymerModelData.item();
     }
 
     @Override
     public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return this.polymerModelData.value();
+        return polymerModelData.value();
     }
 
-    public static void callDoodads(){}
+    public static void callDoodads() {}
 
+    public static class AttributeEntry {
+        private final EntityAttribute attribute;
+        private final String attributeId;
+        private final double value;
+        private final EntityAttributeModifier.Operation operation;
 
+        public AttributeEntry(EntityAttribute attribute, String attributeId, double value, EntityAttributeModifier.Operation operation) {
+            this.attribute = attribute;
+            this.attributeId = attributeId;
+            this.value = value;
+            this.operation = operation;
+        }
+
+        public EntityAttribute getAttribute() {
+            return attribute;
+        }
+
+        public String attributeId() {
+            return attributeId;
+        }
+
+        public double value() {
+            return value;
+        }
+
+        public EntityAttributeModifier.Operation operation() {
+            return operation;
+        }
+    }
 }
-

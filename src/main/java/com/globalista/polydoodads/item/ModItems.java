@@ -1,29 +1,30 @@
 package com.globalista.polydoodads.item;
 
 import com.globalista.polydoodads.Helper;
+import com.globalista.polydoodads.PolyDoodads;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
-import eu.pb4.polymer.core.api.item.SimplePolymerItem;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 public class ModItems {
 
-    public static ArrayList<String> TYPES = new ArrayList<>();
-    public static ArrayList<Item> ITEMS = new ArrayList<>();
+    public static final ArrayList<String> TYPES = new ArrayList<>();
+    public static final ArrayList<Item> ITEMS = new ArrayList<>();
+
     static {
         TYPES.add("ring");
         TYPES.add("necklace");
@@ -32,47 +33,63 @@ public class ModItems {
         TYPES.add("mask");
     }
 
-    static {
+    public static final RegistryKey<ItemGroup> POLYMER_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(PolyDoodads.MOD_ID, "polydoodads"));
+
+    // Helper to convert EntityAttributeModifier to Doodad.AttributeEntry
+    private static Doodad.AttributeEntry toEntry(EntityAttribute attribute, String attributeId, double value, EntityAttributeModifier.Operation operation) {
+        return new Doodad.AttributeEntry(attribute, attributeId, value, operation);
+    }
+
+    public static void init() {
         for (Material material : Material.MATERIALS) {
             for (String type : TYPES) {
+                List<Doodad.AttributeEntry> baseEntries = new ArrayList<>();
 
-                if(material.getSecondaryModifier() == null) {
-                    Doodad.create(material.getName() + "_" + type, List.of(
-                            material.getModifier())
-                    );
-                } else {
-                    Doodad.create(material.getName() + "_" + type, List.of(
-                            material.getModifier(),
-                            material.getSecondaryModifier())
-                    );
+                var mod = material.getModifier();
+                baseEntries.add(toEntry(
+                        material.getAttribute1(),
+                        mod.getName(), // assuming getName() returns String like "generic.armor"
+                        mod.getValue(),
+                        mod.getOperation()
+                ));
+
+                if (material.getSecondaryModifier() != null) {
+                    var secMod = material.getSecondaryModifier();
+                    baseEntries.add(toEntry(
+                            material.getAttribute2(),
+                            secMod.getName(),
+                            secMod.getValue(),
+                            secMod.getOperation()
+                    ));
                 }
 
+                Doodad.create(material.getName() + "_" + type, baseEntries);
 
                 for (Gem gem : Gem.GEMS) {
-                    if (material.getSecondaryModifier() == null) {
-                        Doodad.create(gem.getName() + "_" + material.getName() + "_" + type, List.of(
-                                new EntityAttributeModifier(gem.getAttribute(),gem.getValue() * material.getBonus(), gem.getOperation()),
-                                material.getModifier())
-                        );
+                    List<Doodad.AttributeEntry> gemEntries = new ArrayList<>();
 
+                    // Gem attribute ID and scaled value
+                    String gemAttrId = gem.getAttributename();
+                    double scaledValue = gem.getValue() * material.getBonus();
+
+                    gemEntries.add(toEntry(gem.getAttribute(), gemAttrId, scaledValue, gem.getOperation()));
+                    gemEntries.addAll(baseEntries);
+
+                    Rarity rarity;
+                    if (material.getSecondaryModifier() == null) {
+                        rarity = Rarity.COMMON;
                     } else if (material.getName().contains("netherite")) {
-                        Doodad.create(gem.getName() + "_" + material.getName() + "_" + type, Rarity.RARE, List.of(
-                                new EntityAttributeModifier(gem.getAttribute(),gem.getValue() * material.getBonus(), gem.getOperation()),
-                                material.getModifier(),
-                                material.getSecondaryModifier())
-                        );
+                        rarity = Rarity.RARE;
                     } else {
-                        Doodad.create(gem.getName() + "_" + material.getName() + "_" + type, Rarity.UNCOMMON, List.of(
-                                new EntityAttributeModifier(gem.getAttribute(),gem.getValue() * material.getBonus(), gem.getOperation()),
-                                material.getModifier(),
-                                material.getSecondaryModifier())
-                        );
+                        rarity = Rarity.UNCOMMON;
                     }
 
+                    Doodad.create(gem.getName() + "_" + material.getName() + "_" + type, rarity, gemEntries);
                 }
             }
         }
 
+        // Simple items registration
         registerItem("cut_quartz");
         registerItem("cut_diamond");
         registerItem("cut_emerald");
@@ -82,34 +99,33 @@ public class ModItems {
         registerItem("cut_resin");
         registerItem("cut_glowstone");
         registerItem("cut_ghast_tear");
-
-    }
-
-    public static void registerItem(String name, Item.Settings settings) {
-
-        Item item = new AutoPolymerItem(settings, name);
-        Registry.register(Registries.ITEM, Helper.id(name), item);
-        ITEMS.add(item);
-
     }
 
     public static void registerItem(String name) {
         registerItem(name, new Item.Settings());
     }
 
+    public static void registerItem(String name, Item.Settings settings) {
+        Item item = new AutoPolymerItem(settings, name);
+        Registry.register(Registries.ITEM, Helper.id(name), item);
+        ITEMS.add(Helper.getItem(name));
+    }
+
     public static void callItems() {
+        ItemGroup polymerGroup = FabricItemGroup.builder()
+                .icon(() -> new ItemStack(Helper.getItem("gold_ring")))
+                .displayName(Text.translatable("itemGroup.polydoodads"))
+                .build();
 
-        ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
-        builder.icon(() -> new ItemStack(Helper.getItem("gold_ring")));
-        builder.displayName(Text.translatable("itemGroup.polydoodads"));
-
-        builder.entries(((displayContext, entries) -> {
-            for (Item doodad : Doodad.DOODADS) { entries.add(doodad); }
-            for (Item item : ModItems.ITEMS) { entries.add(item); }
-        }));
-
-        ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Helper.id("polydoodads"), polymerGroup);
 
+        ItemGroupEvents.modifyEntriesEvent(POLYMER_GROUP_KEY).register(entries -> {
+            for (Item doodad : Doodad.DOODADS) {
+                entries.add(Helper.getItem(doodad.toString()));
+            }
+            for (Item item : ITEMS) {
+                entries.add(Helper.getItem(item.toString()));
+            }
+        });
     }
 }

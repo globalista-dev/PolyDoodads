@@ -1,6 +1,7 @@
 package com.globalista.polydoodads.datagen;
 
 import com.globalista.polydoodads.Helper;
+import com.globalista.polydoodads.PolyDoodads;
 import com.globalista.polydoodads.item.Doodad;
 import dev.emi.trinkets.api.Trinket;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -36,7 +37,7 @@ public class TagProvider extends FabricTagProvider<Item> {
 
         for (Item doodad : Doodad.DOODADS) {
 
-            Identifier id = Identifier.of(doodad.toString());
+            Identifier id = new Identifier(PolyDoodads.MOD_ID, doodad.toString());
 
             if(doodad.toString().contains("ring")) { getTagBuilder(RINGS).add(id); }
             if(doodad.toString().contains("necklace")) { getTagBuilder(NECKLACES).add(id); }

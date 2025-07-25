@@ -7,11 +7,11 @@ import net.minecraft.util.Identifier;
 public class Helper {
 
     public static Identifier id(String name) {
-        return Identifier.of(PolyDoodads.MOD_ID, name);
+        return new Identifier(PolyDoodads.MOD_ID, name);
     }
 
     public static Item getItem(String name, boolean vanilla) {
-        return vanilla ? Registries.ITEM.get(Identifier.of("minecraft", name)) : Registries.ITEM.get(id(name));
+        return vanilla ? Registries.ITEM.get(new Identifier("minecraft", name)) : Registries.ITEM.get(id(name));
     }
 
     public static Item getItem(String name) {

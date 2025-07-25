@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class PortugueseLangProvider extends FabricLanguageProvider {
     protected PortugueseLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-        super(dataOutput, "pt_br", registryLookup);
+        super(dataOutput, "pt_br");
     }
 
     public static String translateItemName(String originalName) {
@@ -85,8 +85,7 @@ public class PortugueseLangProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder t) {
-
+    public void generateTranslations(TranslationBuilder t) {
         for (Item doodad : Doodad.DOODADS) {
             String name = translateItemName(Helper.format(doodad.toString()));
             t.add(doodad, name);
@@ -102,6 +101,5 @@ public class PortugueseLangProvider extends FabricLanguageProvider {
         t.add(Helper.getItem("cut_redstone"), "Redstone Lapidada");
 
         t.add("itemGroup.polydoodads", "PolyDoodads");
-
     }
 }

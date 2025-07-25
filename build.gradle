@@ -41,14 +41,6 @@ dependencies {
 	modImplementation include("eu.pb4:polymer-resource-pack:${project.polymer_version}")
 	//modImplementation include("eu.pb4:polymer-blocks:${project.polymer_version}")
 	modImplementation "eu.pb4:polymer-autohost:${project.polymer_version}"
-	//modImplementation "eu.pb4:polymer-resource-pack-extras:${project.polymer_version}"
-	//modImplementation "eu.pb4:polymer-virtual-entity:${project.polymer_version}"
-
-	// SGui
-	//modImplementation include("eu.pb4:sgui:1.10.0+1.21.6")
-
-	// FactoryTools
-	//modImplementation include("eu.pb4:factorytools:0.7.0+1.21.6")
 
 	// Trinkets
 	modImplementation "eu.pb4.polyport:trinkets:${project.trinkets_version}"
@@ -64,7 +56,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 17
 }
 
 java {

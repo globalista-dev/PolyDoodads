@@ -6,109 +6,86 @@ import com.globalista.polydoodads.item.Material;
 import com.globalista.polydoodads.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryWrapper;
 
-import java.util.concurrent.CompletableFuture;
-
+import java.util.function.Consumer;
 
 public class RecipeProvider extends FabricRecipeProvider {
-    public RecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+
+    public RecipeProvider(FabricDataOutput output) {
+        super(output);
     }
 
     @Override
-    public void generate(net.minecraft.data.server.recipe.RecipeExporter exporter) {
-
-
-
+    public void generate(Consumer<RecipeJsonProvider> exporter) {
         for (Material material : Material.MATERIALS) {
+            String name = material.getName();
+            Item ingot = material.getItem();
 
-            Item ingot = Helper.getItem(material.getName() + "_ingot", true);
+            boolean isNetherite = name.contains("netherite");
 
-            if (!material.getName().contains("netherite")) {
-                ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Helper.getItem(material.getName() + "_ring"), 1)
-                        .pattern("NIN")
-                        .pattern("I I")
-                        .pattern("NIN")
-                        .input('N', Items.GOLD_NUGGET)
-                        .input('I', ingot)
-                        .criterion(hasItem(ingot), conditionsFromItem(ingot))
-                        .offerTo(exporter);
-
-                ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Helper.getItem(material.getName() + "_necklace"), 1)
-                        .pattern("NIN")
-                        .pattern("I I")
-                        .pattern(" I ")
-                        .input('N', Items.GOLD_NUGGET)
-                        .input('I', ingot)
-                        .criterion(hasItem(ingot), conditionsFromItem(ingot))
-                        .offerTo(exporter);
-
-                ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Helper.getItem(material.getName() + "_anklet"), 1)
-                        .pattern(" I ")
-                        .pattern("I I")
-                        .pattern("NIN")
-                        .input('N', Items.GOLD_NUGGET)
-                        .input('I', ingot)
-                        .criterion(hasItem(ingot), conditionsFromItem(ingot))
-                        .offerTo(exporter);
-
-                ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Helper.getItem(material.getName() + "_circlet"), 1)
-                        .pattern(" N ")
-                        .pattern("I I")
-                        .pattern(" N ")
-                        .input('N', Items.GOLD_NUGGET)
-                        .input('I', ingot)
-                        .criterion(hasItem(ingot), conditionsFromItem(ingot))
-                        .offerTo(exporter);
-
-                ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Helper.getItem(material.getName() + "_mask"), 1)
-                        .pattern("NIN")
-                        .pattern(" I ")
-                        .pattern("I I")
-                        .input('N', Items.GOLD_NUGGET)
-                        .input('I', ingot)
-                        .criterion(hasItem(ingot), conditionsFromItem(ingot))
-                        .offerTo(exporter);
+            if (!isNetherite) {
+                registerShaped(name, "ring", ingot, exporter, "NIN", "I I", "NIN");
+                registerShaped(name, "necklace", ingot, exporter, "NIN", "I I", " I ");
+                registerShaped(name, "anklet", ingot, exporter, " I ", "I I", "NIN");
+                registerShaped(name, "circlet", ingot, exporter, " N ", "I I", " N ");
+                registerShaped(name, "mask", ingot, exporter, "NIN", " I ", "I I");
             } else {
-                offerNetheriteUpgradeRecipe(exporter, Helper.getItem("gold_ring"), RecipeCategory.TOOLS, Helper.getItem("netherite_ring"));
-                offerNetheriteUpgradeRecipe(exporter, Helper.getItem("gold_necklace"), RecipeCategory.TOOLS, Helper.getItem("netherite_necklace"));
-                offerNetheriteUpgradeRecipe(exporter, Helper.getItem("gold_anklet"), RecipeCategory.TOOLS, Helper.getItem("netherite_anklet"));
-                offerNetheriteUpgradeRecipe(exporter, Helper.getItem("gold_circlet"), RecipeCategory.TOOLS, Helper.getItem("netherite_circlet"));
-                offerNetheriteUpgradeRecipe(exporter, Helper.getItem("gold_mask"), RecipeCategory.TOOLS, Helper.getItem("netherite_mask"));
+                upgradeToNetherite("ring", exporter);
+                upgradeToNetherite("necklace", exporter);
+                upgradeToNetherite("anklet", exporter);
+                upgradeToNetherite("circlet", exporter);
+                upgradeToNetherite("mask", exporter);
             }
 
             for (Gem gem : Gem.GEMS) {
                 for (String type : ModItems.TYPES) {
+                    Item base = Helper.getItem(name + "_" + type);
+                    Item cutGem = Helper.getItem("cut_" + gem.getName());
+                    Item result = Helper.getItem(gem.getName() + "_" + name + "_" + type);
 
-                    Item input = Helper.getItem(material.getName() + "_" + type);
-                    Item result = Helper.getItem(gem.getName() + "_" + material.getName() + "_" + type);
-
-                    String[] a = result.toString().split(":");
-                    String b = a[1];
-
-                    net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder.create(
+                    SmithingTransformRecipeJsonBuilder.create(
+                                    Ingredient.ofItems(base),
+                                    Ingredient.ofItems(cutGem),
                                     Ingredient.ofItems(ingot),
-                                    Ingredient.ofItems(input),
-                                    Ingredient.ofItems(Helper.getItem("cut_" + gem.getName())),
                                     RecipeCategory.TOOLS,
                                     result
-                            )
-                            .criterion(hasItem(input), conditionsFromPredicates(ItemPredicate.Builder.create().items(input)))
-                            .offerTo(exporter, b + "_smithing");
-
+                            ).criterion("has_" + base, conditionsFromItem(base))
+                            .offerTo(exporter, result.toString().replace(":", "_") + "_smithing");
                 }
             }
+        }
+    }
 
+    private void registerShaped(String materialName, String type, Item ingot, Consumer<RecipeJsonProvider> exporter, String... pattern) {
+        ShapedRecipeJsonBuilder builder = ShapedRecipeJsonBuilder.create(
+                RecipeCategory.TOOLS,
+                Helper.getItem(materialName + "_" + type)
+        );
 
+        for (String line : pattern) {
+            builder.pattern(line);
         }
 
+        builder.input('I', ingot)
+                .input('N', Items.GOLD_NUGGET)
+                .criterion("has_" + ingot, conditionsFromItem(ingot))
+                .offerTo(exporter);
+    }
+
+    private void upgradeToNetherite(String type, Consumer<RecipeJsonProvider> exporter) {
+        offerNetheriteUpgradeRecipe(
+                exporter,
+                Helper.getItem("gold_" + type),
+                RecipeCategory.TOOLS,
+                Helper.getItem("netherite_" + type)
+        );
     }
 
     @Override
