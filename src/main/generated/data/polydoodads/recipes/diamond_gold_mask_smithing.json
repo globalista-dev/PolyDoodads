@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "base": {
+    "item": "polydoodads:cut_diamond"
+  },
+  "result": {
+    "item": "polydoodads:diamond_gold_mask"
+  },
+  "template": {
+    "item": "polydoodads:gold_mask"
+  }
+}

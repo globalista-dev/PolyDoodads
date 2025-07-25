@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:copper_ingot"
+  },
+  "base": {
+    "item": "polydoodads:cut_ghast_tear"
+  },
+  "result": {
+    "item": "polydoodads:ghast_tear_copper_mask"
+  },
+  "template": {
+    "item": "polydoodads:copper_mask"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:copper_ingot"
+  },
+  "base": {
+    "item": "polydoodads:cut_amethyst"
+  },
+  "result": {
+    "item": "polydoodads:amethyst_copper_mask"
+  },
+  "template": {
+    "item": "polydoodads:copper_mask"
+  }
+}

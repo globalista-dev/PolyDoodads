@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "base": {
+    "item": "polydoodads:cut_redstone"
+  },
+  "result": {
+    "item": "polydoodads:redstone_gold_anklet"
+  },
+  "template": {
+    "item": "polydoodads:gold_anklet"
+  }
+}

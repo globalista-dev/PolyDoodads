@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:copper_ingot"
+  },
+  "base": {
+    "item": "polydoodads:cut_glowstone"
+  },
+  "result": {
+    "item": "polydoodads:glowstone_copper_circlet"
+  },
+  "template": {
+    "item": "polydoodads:copper_circlet"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "minecraft:copper_ingot"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    "NIN",
+    "I I",
+    " I "
+  ],
+  "result": {
+    "item": "polydoodads:copper_necklace"
+  },
+  "show_notification": true
+}

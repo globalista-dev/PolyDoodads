@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    "NIN",
+    " I ",
+    "I I"
+  ],
+  "result": {
+    "item": "polydoodads:iron_mask"
+  },
+  "show_notification": true
+}

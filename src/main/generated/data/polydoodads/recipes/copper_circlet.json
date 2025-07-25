@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "minecraft:copper_ingot"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    " N ",
+    "I I",
+    " N "
+  ],
+  "result": {
+    "item": "polydoodads:copper_circlet"
+  },
+  "show_notification": true
+}

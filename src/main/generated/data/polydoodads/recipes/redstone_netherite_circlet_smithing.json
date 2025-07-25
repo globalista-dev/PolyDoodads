@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "polydoodads:cut_redstone"
+  },
+  "result": {
+    "item": "polydoodads:redstone_netherite_circlet"
+  },
+  "template": {
+    "item": "polydoodads:netherite_circlet"
+  }
+}

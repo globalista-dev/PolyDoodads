@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "base": {
+    "item": "polydoodads:cut_amethyst"
+  },
+  "result": {
+    "item": "polydoodads:amethyst_iron_circlet"
+  },
+  "template": {
+    "item": "polydoodads:iron_circlet"
+  }
+}
